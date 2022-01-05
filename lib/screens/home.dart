@@ -202,7 +202,7 @@ class ArticleTile extends StatelessWidget {
             Align(
               alignment: Alignment.bottomLeft,
               child:
-                  Text(DateFormat('yyyy-MM-dd KK:mm aaa').format(publishedAt),
+                  Text(DateFormat('yyyy-MM-dd   KK:mm aaa').format(publishedAt),
                       style: GoogleFonts.lato(
                         textStyle: const TextStyle(
                           color: Colors.black,
