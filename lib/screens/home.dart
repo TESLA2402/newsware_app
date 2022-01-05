@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
@@ -9,6 +10,7 @@ import 'package:newsware_app/data/newsdata.dart';
 import 'package:newsware_app/models/article_model.dart';
 import 'package:newsware_app/models/category_models.dart';
 import 'package:newsware_app/screens/category.dart';
+import 'package:newsware_app/screens/categorylist.dart';
 import 'package:newsware_app/screens/newsarticle.dart';
 
 class Home extends StatefulWidget {
@@ -42,25 +44,6 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              "News",
-              style: GoogleFonts.roboto(
-                textStyle: const TextStyle(
-                  color: Colors.blue,
-                  fontSize: 26,
-                  //fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
-          ],
-        ),
-        elevation: 0.0,
-      ),
       body: _loading
           ? Center(
               child: Container(child: CircularProgressIndicator()),
