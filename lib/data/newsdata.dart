@@ -1,7 +1,6 @@
 import 'dart:convert';
 
 import 'package:newsware_app/models/article_model.dart';
-import 'package:newsware_app/screens/newsarticle.dart';
 import 'package:http/http.dart' as http;
 
 class News {
@@ -16,7 +15,8 @@ class News {
       jsonData["articles"].forEach((element) {
         if (element["urlToImage"] != null &&
             element['description'] != null &&
-            element['content'] != null) {
+            element['content'] != null &&
+            element['author'] != null) {
           ArticleModel articleModel = ArticleModel(
               title: element['title'],
               author: element["author"],
