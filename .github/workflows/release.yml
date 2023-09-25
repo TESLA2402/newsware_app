@@ -30,6 +30,13 @@ jobs:
       
       - name: Get dependencies
         run: flutter pub get
+      - name: Upgrade dependencies  
+        run: flutter pub upgrade
       # Runs a set of commands using the runners shell
       - name: Start release build
-        run: flutter build appbundle
+        run: flutter build apk --no-tree-shake-icons --debug
+      - name: Create Release
+        uses: ncipollo/release-action@v1.10.0
+        with:
+          artifacts: "build/app/outputs/flutter-apk/app-debug.apk"
+          tag: v1.0.${{ github.run_number }}
