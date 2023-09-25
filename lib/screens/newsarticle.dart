@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
@@ -12,16 +10,25 @@ class Article extends StatefulWidget {
 }
 
 class _ArticleState extends State<Article> {
-  final Completer<WebViewController> _completer =
-      Completer<WebViewController>();
+  WebViewController webViewController = WebViewController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         //backgroundColor: Colors.white,
-        title: Row(
+        leading: IconButton(
+            onPressed: () async {
+              Navigator.pop(context);
+            },
+            padding: const EdgeInsets.symmetric(horizontal: 16),
+            icon: const Icon(
+              Icons.arrow_back,
+              size: 26,
+              color: Colors.blue,
+            )),
+        title: const Row(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: const <Widget>[
+          children: <Widget>[
             Text(
               "News",
               style: TextStyle(
@@ -43,11 +50,9 @@ class _ArticleState extends State<Article> {
       body: Container(
         height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.width,
-        child: WebView(
-            initialUrl: widget.articleUrl,
-            onWebViewCreated: ((WebViewController webViewController) {
-              _completer.complete(webViewController);
-            })),
+        child: WebViewWidget(
+            controller: webViewController
+              ..loadRequest(Uri.parse(widget.articleUrl))),
       ),
     );
   }
