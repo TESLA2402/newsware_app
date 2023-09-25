@@ -37,7 +37,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   http: ^0.13.3
   cached_network_image: ^3.2.0
-  webview_flutter: ^0.3.19+9
+  webview_flutter: ^4.2.4
   intl: ^0.17.0
   google_fonts: ^2.2.0
   curved_navigation_bar: ^1.0.1
